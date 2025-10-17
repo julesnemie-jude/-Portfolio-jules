@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jules Nemie — Développeur web débutant</title>
+  <meta name="description" content="Portfolio de Jules Nemie, développeur web débutant à Port-au-Prince, Haïti. HTML, CSS et notions de JavaScript. Projets et contacts." />
+  <style>
+    :root {
+      --bg: #0f172a;         /* slate-900 */
+      --card: #111827;       /* gray-900 */
+      --text: #e5e7eb;       /* gray-200 */
+      --muted: #9ca3af;      /* gray-400 */
+      --accent: #22d3ee;     /* cyan-400 */
+      --accent-2: #60a5fa;   /* blue-400 */
+      --ring: rgba(34,211,238,0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* Header */
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: linear-gradient(to bottom, rgba(15,23,42,.9), rgba(15,23,42,.6)); border-bottom: 1px solid rgba(148,163,184,.15); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 700; letter-spacing: .4px; }
+    .nav a { color: var(--text); opacity: .9; }
+    .nav .links { display: flex; gap: 18px; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.1fr; gap: 20px; padding: 64px 0 32px; }
+    .title { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 0 0 8px; font-weight: 800; }
+    .subtitle { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 0 0 20px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { background: linear-gradient(135deg, rgba(34,211,238,.2), rgba(96,165,250,.2)); border: 1px solid rgba(148,163,184,.2); padding: 8px 12px; border-radius: 999px; font-size: 14px; }
+    .cta { display: flex; gap: 12px; margin-top: 10px; }
+    .btn { display: inline-block; padding: 10px 14px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(148,163,184,.25); background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(96,165,250,.12)); color: var(--text); box-shadow: 0 0 0 0 transparent; transition: transform .12s ease, box-shadow .12s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -12px var(--ring); text-decoration: none; }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    h2 { font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 16px; }
+    .card { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 16px; padding: 18px; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .skill { display: grid; gap: 8px; }
+    .meter { height: 8px; background: rgba(148,163,184,.2); border-radius: 999px; overflow: hidden; }
+    .meter > span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); width: 0; }
+    .w-80 { width: 80%; } .w-70 { width: 70%; } .w-35 { width: 35%; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .project { display: grid; gap: 10px; }
+    .project h3 { margin: 0; font-size: 18px; }
+    .project p { margin: 0; color: var(--muted); }
+    .project .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+    footer { padding: 30px 0; color: var(--muted); border-top: 1px solid rgba(148,163,184,.15); }
+    .muted { color: var(--muted); }
+
+    @media (min-width: 860px) {
+      .hero { grid-template-columns: 1.2fr .8fr; align-items: center; }
+      .hero-art { display: block; }
+    }
+    .hero-art { display: none; }
+    .blob { aspect-ratio: 1 / 1; width: 100%; background: radial-gradient(120px 120px at 30% 30%, rgba(34,211,238,.35), transparent), radial-gradient(160px 160px at 80% 70%, rgba(96,165,250,.35), transparent); filter: blur(24px); border-radius: 24px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" aria-label="Navigation principale">
+      <div class="brand">Jules&nbsp;Nemie</div>
+      <nav class="links" aria-label="Liens de section">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="En-tête et présentation">
+      <div>
+        <h1 class="title">Développeur web débutant</h1>
+        <p class="subtitle">Je suis Jules Nemie, développeur web débutant passionné par la création de sites modernes et l’apprentissage de nouvelles technologies.</p>
+        <div class="badges" aria-label="Mots-clés">
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">JavaScript (notions)</span>
+          <span class="badge">Portfolio • Projets</span>
+        </div>
+        <div class="cta" role="group" aria-label="Actions principales">
+          <a class="btn" href="#projets">Voir mes projets</a>
+          <a class="btn" href="#contact">Me contacter</a>
+          <!-- Remplace le lien ci-dessous par ton PDF une fois prêt -->
+          <a class="btn" href="#" aria-label="Télécharger mon CV (à remplacer)" title="Bientôt disponible">Télécharger mon CV</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="blob"></div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos" aria-label="À propos de moi">
+      <h2>À propos</h2>
+      <div class="card">
+        <p>Basé à <strong>Port-au-Prince, Haïti</strong>, je souhaite lancer ma carrière dans le <strong>développement web</strong>. J’ai des bases solides en <strong>HTML</strong> et <strong>CSS</strong>, et je développe mes compétences en <strong>JavaScript</strong>. Mon objectif est de contribuer à des projets concrets tout en apprenant aux côtés d’une équipe expérimentée.</p>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences" aria-label="Compétences techniques">
+      <h2>Compétences</h2>
+      <div class="skills">
+        <div class="card skill" aria-label="Compétence HTML">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong>HTML</strong><span class="muted">Bases solides</span>
+          </div>
+          <div class="meter" aria-hidden="true"><span class="w-80"></span></div>
+        </div>
+        <div class="card skill" aria-label="Compétence CSS">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong>CSS</strong><span class="muted">Bases solides</span>
+          </div>
+          <div class="meter" aria-hidden="true"><span class="w-70"></span></div>
+        </div>
+        <div class="card skill" aria-label="Compétence JavaScript">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong>JavaScript</strong><span class="muted">Notions</span>
+          </div>
+          <div class="meter" aria-hidden="true"><span class="w-35"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" aria-label="Mes projets">
+      <h2>Projets</h2>
+      <div class="projects">
+        <!-- Projet 1: Calculatrice -->
+        <article class="card project" aria-labelledby="proj1-title">
+          <h3 id="proj1-title">Calculatrice web (HTML & CSS)</h3>
+          <p>Interface simple de calculatrice : structure sémantique HTML et mise en forme CSS, avec interactions basiques.</p>
+          <div class="actions">
+            <!-- Remplace # par les vrais liens (GitHub ou démo en ligne) -->
+            <a class="btn" href="#" aria-label="Voir le code du projet Calculatrice">Code</a>
+            <a class="btn" href="#" aria-label="Voir la démo du projet Calculatrice">Démo</a>
+          </div>
+        </article>
+
+        <!-- Slot projet futur A -->
+        <article class="card project" aria-labelledby="proj2-title">
+          <h3 id="proj2-title">Projet à venir</h3>
+          <p>Emplacement réservé pour un futur projet (par exemple : mini-portfolio JS, galerie d’images, to-do list…).</p>
+          <div class="actions">
+            <span class="muted">Bientôt en ligne</span>
+          </div>
+        </article>
+
+        <!-- Slot projet futur B -->
+        <article class="card project" aria-labelledby="proj3-title">
+          <h3 id="proj3-title">Projet à venir</h3>
+          <p>Emplacement réservé pour un futur projet (par exemple : page produit e‑commerce, formulaire interactif…).</p>
+          <div class="actions">
+            <span class="muted">Bientôt en ligne</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-label="Contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="card">
+          <p><strong>E‑mail</strong><br><a href="mailto:neijilouis@gmail.com">neijilouis@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <p><strong>Téléphone</strong><br><a href="tel:+594594481703">+594 594 48 17 03</a></p>
+        </div>
+        <div class="card">
+          <p><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/nemie-jules-20b601347" rel="noopener noreferrer">linkedin.com/in/nemie-jules-20b601347</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small class="muted">© <span id="year"></span> Jules Nemie — Portfolio personnel. Construit en HTML & CSS.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Met l'année courante dans le pied de page
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
