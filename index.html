@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jules Nemie — Développeur web débutant</title>
+  <meta name="description" content="Portfolio de Jules Nemie, développeur web débutant basée en Guyane française. HTML, CSS et notions de JavaScript. Projets et contacts." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-2: #60a5fa;
+      --ring: rgba(34,211,238,0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    header {
+      position: sticky; top: 0;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(to bottom, rgba(15,23,42,.9), rgba(15,23,42,.6));
+      border-bottom: 1px solid rgba(148,163,184,.15);
+      z-index: 50;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 700; letter-spacing: .4px; }
+    .nav a { color: var(--text); opacity: .9; }
+    .nav .links { display: flex; gap: 18px; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.1fr; gap: 20px; padding: 64px 0 32px; }
+    .title { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 0 0 8px; font-weight: 800; }
+    .subtitle { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 0 0 20px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { background: linear-gradient(135deg, rgba(34,211,238,.2), rgba(96,165,250,.2)); border: 1px solid rgba(148,163,184,.2); padding: 8px 12px; border-radius: 999px; font-size: 14px; }
+    .cta { display: flex; gap: 12px; margin-top: 10px; }
+    .btn { display: inline-block; padding: 10px 14px; border-radius: 12px; font-weight: 600; border: 1px solid rgba(148,163,184,.25); background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(96,165,250,.12)); color: var(--text); box-shadow: 0 0 0 0 transparent; transition: transform .12s ease, box-shadow .12s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -12px var(--ring); text-decoration: none; }
+
+    section { padding: 40px 0; }
+    h2 { font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 16px; }
+    .card { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 16px; padding: 18px; }
+
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .project { display: grid; gap: 10px; }
+    .project h3 { margin: 0; font-size: 18px; }
+    .project p { margin: 0; color: var(--muted); }
+    .project .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+    footer { padding: 30px 0; color: var(--muted); border-top: 1px solid rgba(148,163,184,.15); text-align: center; }
+
+    @media (min-width: 860px) {
+      .hero { grid-template-columns: 1.2fr .8fr; align-items: center; }
+      .hero-art { display: block; }
+    }
+    .hero-art { display: none; }
+    .blob { aspect-ratio: 1 / 1; width: 100%; background: radial-gradient(120px 120px at 30% 30%, rgba(34,211,238,.35), transparent), radial-gradient(160px 160px at 80% 70%, rgba(96,165,250,.35), transparent); filter: blur(24px); border-radius: 24px; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav" aria-label="Navigation principale">
+      <div class="brand">Jules&nbsp;Nemie</div>
+      <nav class="links" aria-label="Liens de section">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="assets/Jules_Nemie_CV_Developpeur_Web_Debutant.pdf" download>📄 Télécharger mon CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="En-tête et présentation">
+      <div>
+        <h1 class="title">Développeur web débutant</h1>
+        <p class="subtitle">
+  👋      Bonjour et bienvenue sur mon portfolio&nbsp;!<br>
+          Je suis <strong>Jules Nemie</strong>, développeuse web débutante passionnée par la création de sites modernes, accessibles et performants.
+          Ce site présente mon parcours, mes compétences, mes projets ainsi que ma motivation à évoluer dans le domaine du développement web.
+       </p>
+        <div class="badges" aria-label="Mots-clés">
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">JavaScript (notions)</span>
+          <span class="badge">Portfolio • Projets</span>
+        </div>
+        <div class="cta" role="group" aria-label="Actions principales">
+          <a class="btn" href="#projets">Voir mes projets</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="blob"></div></div>
+    </section> <!-- fin de la section .hero -->
+
+<!-- OBJECTIF PROFESSIONNEL -->
+<section id="objectif">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:32px; color:var(--accent);">
+    🎯 Objectif professionnel
+  </h2>
+  <div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
+    <p>
+      Mon objectif est d’évoluer en tant que <strong>développeuse web</strong> et de participer à la création 
+      de projets concrets, modernes et utiles. Je souhaite intégrer une équipe dynamique où je pourrai mettre 
+      à profit mes compétences en <strong>HTML</strong>, <strong>CSS</strong> et <strong>JavaScript</strong>, tout 
+      en continuant à apprendre de nouvelles technologies et à perfectionner mes connaissances.
+    </p>
+    <p>
+      Je suis particulièrement intéressée par les projets liés au <strong>développement front-end</strong> et à la 
+      <strong>création d’interfaces web responsives</strong>, et je cherche activement un <strong>stage</strong> 
+      qui me permettra de progresser et d’apporter une réelle valeur ajoutée.
+    </p>
+  </div>
+</section>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <h2>À propos</h2>
+      <div class="card">
+        <img src="assets/photo.png" alt="Photo de Jules Nemie" style="width:150px; border-radius:50%; margin-bottom:15px;">
+        <p>Basée en <strong>Guyane française</strong>, je suis <strong>développeuse web débutante</strong> formée à l’<strong>ESIH</strong> (diplôme en développement web, 1999–2002).</p>
+        <p>J’ai des bases solides en <strong>HTML</strong> et <strong>CSS</strong>, et je renforce actuellement mes compétences en <strong>JavaScript</strong>. J’aime créer des interfaces <strong>modernes, rapides et accessibles</strong>.</p>
+        <p>Je recherche un <strong>stage</strong> pour contribuer à des projets concrets et progresser au sein d’une équipe expérimentée.</p>
+        <p><strong>Ce que j’apporte :</strong> curiosité, rigueur, sens du détail et envie d’apprendre vite.</p>
+      </div>
+    </section>
+    <!-- COMPÉTENCES -->
+      <section id="competences" aria-label="Mes compétences">
+  ...
+     </section>
+
+    <!-- PROJETS -->
+    <section id="projets" aria-label="Mes projets">
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:32px; color:var(--accent);">🚀 Mes Projets</h2>
+      <p style="text-align:center; max-width:700px; margin:0 auto 40px; color:var(--muted);">
+        Voici quelques-uns de mes projets web réalisés ou en cours. Chaque projet reflète mon apprentissage, ma progression et mon envie de créer des interfaces modernes et efficaces.
+      </p>
+
+      <div class="projects">
+        <!-- Projet 1 : Calculatrice -->
+        <article class="card project">
+          <h3>🧮 Calculatrice Web (HTML & CSS)</h3>
+          <p>Projet simple permettant d’effectuer des calculs de base grâce à une interface claire et responsive. Réalisé dans le cadre de mon apprentissage, il illustre mes premières compétences en HTML et CSS.</p>
+          <div class="actions">
+            <a class="btn" href="https://julesnemie-jude.github.io/calculatrice-web/" target="_blank">🚀 Démo</a>
+            <a class="btn" href="https://github.com/julesnemie-jude/calculatrice-web" target="_blank">📁 Code source</a>
+          </div>
+        </article>
+
+        <!-- Projet 2 : E-commerce -->
+        <article class="card project">
+          <h3>🛒 Mini site e-commerce (à venir)</h3>
+          <p>Un mini site e-commerce en préparation, avec pages produits, panier et mise en page responsive. Ce projet mettra en avant mes compétences en HTML, CSS et JavaScript.</p>
+          <div class="actions"><span class="muted">📦 En développement</span></div>
+        </article>
+
+        <!-- Projet 3 : To-do List -->
+        <article class="card project">
+          <h3>✅ To-Do List (à venir)</h3>
+          <p>Une application web simple pour gérer une liste de tâches. Elle permettra d’ajouter, cocher et supprimer des tâches grâce à HTML, CSS et JavaScript.</p>
+          <div class="actions"><span class="muted">📦 En développement</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-label="Contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="card"><p><strong>E-mail</strong><br><a href="mailto:neijilouis@gmail.com">neijilouis@gmail.com</a></p></div>
+        <div class="card"><p><strong>Téléphone</strong><br><a href="tel:+594594481703">+594 594 48 17 03</a></p></div>
+        <div class="card"><p><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/nemie-jules-20b601347" target="_blank">linkedin.com/in/nemie-jules-20b601347</a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small class="muted">© <span id="year"></span> Jules Nemie — Portfolio personnel. Construit en HTML & CSS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
